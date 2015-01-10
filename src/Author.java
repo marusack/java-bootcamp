@@ -1,16 +1,14 @@
-
 public class Author {
 
 	private String name;
 	private String email;
 	private char gender;
-	
-	public Author(String name, String email, char gender){
+
+	public Author(String name, String email, char gender) {
 		this.setName(name);
 		this.setEmail(email);
 		this.setGender(gender);
 	}
-	
 
 	public String getName() {
 		return name;
@@ -35,9 +33,9 @@ public class Author {
 	public void setGender(char gender) {
 		this.gender = gender;
 	}
-	
-	public String toString(){
-		return(this.getName()+"("+this.getGender()+") at "+ this.getEmail());
+
+	public String toString() {
+		return (this.getName() + "(" + this.getGender() + ") at " + this.getEmail());
 	}
-	
+
 }
