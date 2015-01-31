@@ -7,6 +7,9 @@ import junit.framework.TestCase;
 
 import org.junit.Test;
 
+
+
+
 public class ShoppingCartTest extends TestCase {
 
 	
@@ -37,6 +40,13 @@ public class ShoppingCartTest extends TestCase {
 		Product offer = new Offer(700.50,a,"last offer");
 		cart.addItem(offer);
 		assertEquals(cart.getItems()," - Offer last offer ....... $700.5\n - Item computer ....... $500.3\n - Item computer ....... $500.3\n\n");
+	}
+	@Test
+	public void testUsingSpring(){
+		ShoppingCartService cart = UsingSpring.loadFromSpring();
+		Product item = new Item(20.0,"candy");
+		cart.addItem(item);
+		assertEquals(cart.getItems()," - Item candy ....... $20.0\n");
 	}
 	
 }
