@@ -5,10 +5,9 @@ public abstract class Product {
 	public double price;
 	public int units;
 
-
 	public Product(double price, int units) {
 		this.setUnits(units);
-		
+
 		this.setPrice(price);
 
 	}
@@ -49,7 +48,5 @@ public abstract class Product {
 	public void setUnits(int units) {
 		this.units = units;
 	}
-
-	
 
 }

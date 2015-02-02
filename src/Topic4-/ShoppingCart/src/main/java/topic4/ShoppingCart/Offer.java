@@ -12,14 +12,14 @@ public class Offer extends Product {
 		this.setOffers(offers);
 
 		this.setName(name);
-		
+
 	}
 
 	public Offer(double price, ArrayList<Item> offers, String name) {
 		super(price, 1);
 		this.setOffers(offers);
 		this.setName(name);
-		
+
 	}
 
 	@Override
