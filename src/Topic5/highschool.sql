@@ -1,30 +1,8 @@
--- phpMyAdmin SQL Dump
--- version 4.1.14
--- http://www.phpmyadmin.net
---
--- Servidor: 127.0.0.1
--- Tiempo de generación: 30-01-2015 a las 14:48:05
--- Versión del servidor: 5.6.17
--- Versión de PHP: 5.5.12
+
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
-
---
--- Base de datos: `highschool`
---
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `course`
---
 
 CREATE TABLE IF NOT EXISTS `course` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -36,9 +14,7 @@ CREATE TABLE IF NOT EXISTS `course` (
   KEY `assigned_teacher` (`assigned_teacher`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
 
---
--- Volcado de datos para la tabla `course`
---
+
 
 INSERT INTO `course` (`id`, `name`, `assigned_teacher`, `hours_week`, `schedule_time`) VALUES
 (1, 'php FTW', 2, 4, 'sabados y lunes'),
@@ -47,11 +23,7 @@ INSERT INTO `course` (`id`, `name`, `assigned_teacher`, `hours_week`, `schedule_
 (4, 'software engineer', 2, 12, 'monday tuesday and saturday'),
 (5, 'perl', 3, 8, 'Monday and Wednesday');
 
--- --------------------------------------------------------
 
---
--- Estructura de tabla para la tabla `studentcourse`
---
 
 CREATE TABLE IF NOT EXISTS `studentcourse` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -66,9 +38,7 @@ CREATE TABLE IF NOT EXISTS `studentcourse` (
   KEY `id_course` (`id_course`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=101 ;
 
---
--- Volcado de datos para la tabla `studentcourse`
---
+
 
 INSERT INTO `studentcourse` (`id`, `id_student`, `id_course`, `note1`, `note2`, `note3`, `final_note`) VALUES
 (1, 13, 4, 4, 6, 9, 8),
@@ -172,11 +142,7 @@ INSERT INTO `studentcourse` (`id`, `id_student`, `id_course`, `note1`, `note2`, 
 (99, 65, 5, 9, 9, 9, 9),
 (100, 16, 5, 5, 5, 5, 5);
 
--- --------------------------------------------------------
 
---
--- Estructura de tabla para la tabla `students`
---
 
 CREATE TABLE IF NOT EXISTS `students` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -188,9 +154,7 @@ CREATE TABLE IF NOT EXISTS `students` (
   UNIQUE KEY `registration_number` (`registration_number`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=109 ;
 
---
--- Volcado de datos para la tabla `students`
---
+
 
 INSERT INTO `students` (`id`, `first_name`, `last_name`, `registration_number`, `date_birth`) VALUES
 (1, 'romi', 'sanchez', 4578, '2015-01-08'),
@@ -247,11 +211,7 @@ INSERT INTO `students` (`id`, `first_name`, `last_name`, `registration_number`, 
 (107, 'guille', 'sack', 58, '2015-01-08'),
 (108, 'mauricio', 'info', 59, '2015-01-08');
 
--- --------------------------------------------------------
 
---
--- Estructura de tabla para la tabla `teacher`
---
 
 CREATE TABLE IF NOT EXISTS `teacher` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -261,32 +221,19 @@ CREATE TABLE IF NOT EXISTS `teacher` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
---
--- Volcado de datos para la tabla `teacher`
---
+
 
 INSERT INTO `teacher` (`id`, `first_name`, `last_name`, `date_birth`) VALUES
 (1, 'maru', 'sack ceppi', '2015-01-28'),
 (2, 'gusti', 'gimenez', '2015-01-13'),
 (3, 'gilda', 'romero', '2015-01-20');
 
---
--- Restricciones para tablas volcadas
---
 
---
--- Filtros para la tabla `course`
---
 ALTER TABLE `course`
   ADD CONSTRAINT `course_teacher` FOREIGN KEY (`assigned_teacher`) REFERENCES `teacher` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
--- Filtros para la tabla `studentcourse`
---
+
 ALTER TABLE `studentcourse`
   ADD CONSTRAINT `studencourse_fkidcourse` FOREIGN KEY (`id_course`) REFERENCES `course` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `studencourse_fkidstudent` FOREIGN KEY (`id_student`) REFERENCES `students` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
