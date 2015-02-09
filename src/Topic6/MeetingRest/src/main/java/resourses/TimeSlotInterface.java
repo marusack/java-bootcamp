@@ -11,6 +11,7 @@ public interface TimeSlotInterface {
 
 	public TimeSlot getTime();
 
-	public void createTimeSlot(Calendar date, int durationHours);
+
+	void createTimeSlot(int id,String date, int durationHours);
 
 }

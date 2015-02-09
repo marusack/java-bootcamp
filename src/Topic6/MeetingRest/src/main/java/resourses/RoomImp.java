@@ -22,12 +22,12 @@ public class RoomImp implements RoomInterface {
 	 * @return {@link Void}
 	 */
 	@Override
-	public void createRoom(int Id, String name, ArrayList<Meeting> appointments) {
+	public void createRoom(int Id, String name) {
 
 		Room room = new Room();
 		room.setId(Id);
 		room.setName(name);
-		room.setAppointments(new ArrayList<Meeting>());
+		
 		rooms.add(room);
 	}
 

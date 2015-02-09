@@ -2,14 +2,13 @@
 <!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
                                          "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
- <session-factory name="meetingdb">
+ <session-factory name="">
   <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
   <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/meetingdb</property>
   <property name="hibernate.connection.username">root</property>
-  <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
-  <mapping class="entitys.Attendees" package="MeetingRest.entitys" resource="entitys/"/>
-  <mapping class="entitys.Meeting" package="MeetingRest.entitys" resource="entitys/"/>
-  <mapping class="entitys.Room" package="MeetingRest.entitys" resource="entitys/"/>
-  <mapping class="entitys.TimeSlot" package="MeetingRest.entitys" resource="entitys/"/>
+  <mapping class="entitys.Attendees" resource="META-INF/attendees.hbm.xml"/>
+  <mapping class="entitys.Meeting" resource="META-INF/meeting.hbm.xml"/>
+  <mapping class="entitys.Room" resource="META-INF/room.hbm.xml"/>
+  <mapping class="entitys.TimeSlot" resource="META-INF/timeslot.hbm.xml"/>
  </session-factory>
 </hibernate-configuration>

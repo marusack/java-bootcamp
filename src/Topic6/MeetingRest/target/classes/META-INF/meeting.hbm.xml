@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 09-feb-2015 10:42:45 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="entitys.Meeting" table="MEETING">
+        <id name="id" type="int">
+            <column name="ID" />
+            <generator class="assigned" />
+        </id>
+        <list name="attendants" inverse="false" table="ATTENDEES" lazy="true">
+            <key>
+                <column name="ID" />
+            </key>
+            <list-index></list-index>
+            <one-to-many class="entitys.Attendees" />
+        </list>
+        <many-to-one name="room" class="entitys.Room" fetch="join">
+            <column name="ROOM" />
+        </many-to-one>
+        <many-to-one name="time" class="entitys.TimeSlot" fetch="join">
+            <column name="TIME" />
+        </many-to-one>
+    </class>
+</hibernate-mapping>

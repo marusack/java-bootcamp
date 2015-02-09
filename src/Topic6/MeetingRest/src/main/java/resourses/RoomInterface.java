@@ -7,7 +7,7 @@ import entitys.Room;
 
 public interface RoomInterface {
 
-	public void createRoom(int Id, String name, ArrayList<Meeting> appointments);
+	public void createRoom(int Id, String name);
 
 	public ArrayList<Room> getRooms();
 

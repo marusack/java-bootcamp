@@ -2,29 +2,41 @@ package entitys;
 
 import java.util.ArrayList;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 
 
+@Entity
+@Table(name="room", uniqueConstraints={@UniqueConstraint(columnNames={"id"})})
 public class Room {
 
-	  
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="id", nullable=false , unique=true, length=11 )  
 	private int id;
-	private String name;
-	private ArrayList<Meeting> appointments;
+	@Column(name="name", length=20, nullable=true)
+	private String name;;
 
 	public Room() {
 	}
 
-	public Room(int id, String name, ArrayList<Meeting> appointments) {
+	public Room(int id, String name) {
 		super();
 		this.id = id;
 		this.name = name;
-		this.appointments = appointments;
+		
 	}
+
+	
 
 	@Override
 	public String toString() {
-		return "Room [id=" + id + ", name=" + name + ", appointments="
-				+ appointments + "]";
+		return "Room [id=" + id + ", name=" + name + "]";
 	}
 
 	public int getId() {
@@ -43,12 +55,6 @@ public class Room {
 		this.name = name;
 	}
 
-	public ArrayList<Meeting> getAppointments() {
-		return appointments;
-	}
-
-	public void setAppointments(ArrayList<Meeting> appointments) {
-		this.appointments = appointments;
-	}
+	
 
 }
