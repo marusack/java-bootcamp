@@ -5,7 +5,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "product")
@@ -16,16 +15,16 @@ public class Product {
 	@Column(name = "id")
 	private Long id;
 	@Column(name = "name")
-	@NotNull
+	
 	private String name;
 	@Column(name = "description")
-	@NotNull
+	
 	private String description;
 	@Column(name = "price")
-	@NotNull
+	
 	private double price;
 	@Column(name = "quantity")
-	@NotNull
+	
 	private double quantity;
 	
     public Product(){}

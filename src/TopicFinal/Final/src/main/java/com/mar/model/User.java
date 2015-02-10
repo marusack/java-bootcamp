@@ -9,7 +9,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
 @Entity
 @Table(name = "user")
 public class User {
@@ -19,22 +18,22 @@ public class User {
 	@Column(name = "id")
 	private Long id;
 	@Column(name = "firstname")
-	@NotNull
+	
 	private String firstname;
 	@Column(name = "lastname")
-	@NotNull
+	
 	private String lastname;
 	@Column(name = "mail")
-	@NotNull
+	
 	private String mail;
 	@Column(name = "address")
-	@NotNull
+	
 	private String address;
 	@Column(name = "username")
-	@NotNull
+	
 	private String username;
 	@Column(name = "password")
-	@NotNull
+	
 	private String password;
 	
 	@OneToMany(mappedBy = "user")

@@ -12,7 +12,6 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import javax.validation.constraints.NotNull;
 
 
 @Entity
@@ -25,15 +24,15 @@ public class Order {
 	private Long id;
 
 	@Column(name = "status")
-	@NotNull
+	
 	private String status;
 
 	@Temporal(TemporalType.DATE)
-	@NotNull
+	
 	private Date date;
 
 	@Column(name = "total")
-	@NotNull
+	
 	private double total;
 
 	@OneToOne(cascade = CascadeType.ALL)

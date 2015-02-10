@@ -13,7 +13,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name="creditcard")
@@ -25,15 +24,15 @@ public class CreditCard {
 	private Long id;
 	
 	@Column(name = "number")
-	@NotNull
+	
 	private double number;
 	
 	@Column(name = "bank")
-	@NotNull
+	
 	private String bank;
 	
 	@Temporal(TemporalType.DATE)
-	@NotNull
+	
 	private Date expdate;
 	
 	@ManyToOne(cascade = CascadeType.ALL)

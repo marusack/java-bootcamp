@@ -10,6 +10,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+
 @Entity
 @Table(name = "product_line")
 public class ProductLine {
@@ -19,6 +20,7 @@ public class ProductLine {
 	@Column(name = "id")
 	private Long id;
 
+	
 	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "product_id")
 	private Product product;
