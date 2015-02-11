@@ -12,13 +12,14 @@
         http://www.springframework.org/schema/lang http://www.springframework.org/schema/lang/spring-lang.xsd
         http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
         http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd
-        http://www.springframework.org/schema/context/spring-context.xsd">
+       ">
 
 	
 	
 	<context:annotation-config />
+<!-- 	 is used to activate annotations in beans already registered in the application context  -->
 	<context:component-scan base-package="com.mar.controller" />	
-		
+	
 	
 	<bean id="propertyConfigurer"
 		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer"
@@ -30,6 +31,8 @@
 		p:url="${jdbc.databaseurl}" 
 		p:username="${jdbc.username}" 
 		p:password="${jdbc.password}" />
+		
+		
 	<bean id="sessionFactory"
 		class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
 		<property name="dataSource" ref="dataSource" />

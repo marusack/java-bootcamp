@@ -4,8 +4,8 @@ com\mar\daoImpl\ShoppingCartDaoImpl.class
 com\mar\daoImpl\UserDaoImpl.class
 com\mar\dao\UserDao.class
 com\mar\controller\ShoppingCartController.class
-com\mar\serviceImpl\ShoppingCartServiceImpl.class
 com\mar\model\ProductLine.class
+com\mar\serviceImpl\ShoppingCartServiceImpl.class
 com\mar\model\Product.class
 com\mar\dao\ProductDao.class
 com\mar\daoImpl\ProductDaoImpl.class
@@ -14,9 +14,8 @@ com\mar\serviceImpl\UserServiceImpl.class
 com\mar\model\User.class
 com\mar\serviceImpl\ProductServiceImpl.class
 com\mar\service\UserService.class
-com\mar\controller\Application.class
 com\mar\controller\UserController.class
-com\mar\service\ProductService.class
 com\mar\model\Order.class
+com\mar\service\ProductService.class
 com\mar\controller\ProductController.class
 com\mar\dao\ShoppingCartDao.class
