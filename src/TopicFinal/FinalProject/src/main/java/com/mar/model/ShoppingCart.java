@@ -2,14 +2,14 @@ package com.mar.model;
 
 import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 @Entity
 @Table(name = "shoppingcart")
@@ -20,20 +20,33 @@ public class ShoppingCart {
 	@Column(name = "id")
 	private Long id;
 	
-	@OneToOne(cascade = CascadeType.ALL, mappedBy = "shoppingCart")
+	
+	@OneToOne(fetch = FetchType.LAZY)
+	@PrimaryKeyJoinColumn
 	private Order order;
 	
 	@OneToMany(mappedBy = "shoppingCart")
 	private List<ProductLine> productLine;
   
-	@OneToOne(cascade = CascadeType.ALL,mappedBy = "shoppingCart")
-	@JoinColumn(name = "user_id")	
+	
+	@OneToOne(fetch = FetchType.LAZY)
+	@PrimaryKeyJoinColumn
 	private User user;
 	
 	
 	
 	public User getUser() {
 		return user;
+	}
+
+
+	public ShoppingCart(Long id, Order order, List<ProductLine> productLine,
+			User user) {
+		super();
+		this.id = id;
+		this.order = order;
+		this.productLine = productLine;
+		this.user = user;
 	}
 
 
@@ -72,6 +85,16 @@ public class ShoppingCart {
 
 	public void setProductLine(List<ProductLine> productLine) {
 		this.productLine = productLine;
+	}
+
+
+	public final Order getOrder() {
+		return order;
+	}
+
+
+	public final void setOrder(Order order) {
+		this.order = order;
 	}
 
 	

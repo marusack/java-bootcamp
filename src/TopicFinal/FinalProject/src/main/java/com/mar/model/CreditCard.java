@@ -3,13 +3,13 @@ package com.mar.model;
 
 import java.util.Date;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
+import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -35,8 +35,8 @@ public class CreditCard {
 	
 	private Date expdate;
 	
-	@ManyToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "user_id")
+	@OneToOne(fetch = FetchType.LAZY)
+	@PrimaryKeyJoinColumn
 	private User user;
 
 	public CreditCard() {

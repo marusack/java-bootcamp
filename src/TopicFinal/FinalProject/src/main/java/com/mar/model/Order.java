@@ -5,9 +5,9 @@ import java.util.Date;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -15,7 +15,7 @@ import javax.persistence.TemporalType;
 
 
 @Entity
-@Table(name = "orders")
+@Table(name = "order")
 public class Order {
 
 	@Id
@@ -35,14 +35,11 @@ public class Order {
 	
 	private double total;
 
-	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "shoppingcart_id")
+	
+	@OneToOne(fetch = FetchType.LAZY, mappedBy = "order", cascade = CascadeType.ALL)
 	private ShoppingCart shoppingCart;
 
 	
-	/*
-	 *for the next spring incorporate another payment method
-	 */
 	
 	
 	public Order() {
